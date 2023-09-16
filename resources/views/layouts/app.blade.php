@@ -15,7 +15,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <!-- Change this part to remove Background and remove under the class -->
+        <div class="">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

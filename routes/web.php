@@ -16,9 +16,12 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//====== Home Page ======>
+Route::get('/',[HomeController::class, 'homepage']);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -28,7 +31,7 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name(
 
 ///example
 // Route::get('post', [HomeController::class, 'post']);
-Route::get('post', [HomeController::class, 'post'])->middleware(['auth', 'admin']);
+// Route::get('post', [HomeController::class, 'post'])->middleware(['auth', 'admin']);
 
 
 Route::middleware('auth')->group(function () {
