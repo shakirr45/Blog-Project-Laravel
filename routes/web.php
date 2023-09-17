@@ -47,4 +47,16 @@ require __DIR__.'/auth.php';
 Route::get('/post_page',[AdminController::class, 'post_page']);
 Route::post('/add_post',[AdminController::class, 'add_post']);
 
+// Show Post in Admin Table ====>>
+Route::get('/show_post',[AdminController::class, 'show_post']);
+
+// Delete Post from Admin Table ====>>
+Route::get('/delete_post/{id}',[AdminController::class, 'delete_post']);
+
+
+
+
+
+
+
 

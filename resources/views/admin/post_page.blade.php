@@ -36,7 +36,7 @@
     @if(session()->has('message'))
 
     <div class="alert alert-success">
-        <Button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</Button>
+        <Button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</Button>
 
         {{session()->get('message')}}
 
