@@ -32,6 +32,18 @@
       <!-- Sidebar Navigation end-->
       <div class="page-content">
 
+    <!-- Get Messagesform AdminController -->
+    @if(session()->has('message'))
+
+    <div class="alert alert-success">
+        <Button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</Button>
+
+        {{session()->get('message')}}
+
+    </div>
+
+    @endif
+
       <h1 class="post_title">Add Post</h1>
 
       <div>
