@@ -53,6 +53,26 @@ Route::get('/show_post',[AdminController::class, 'show_post']);
 // Delete Post from Admin Table ====>>
 Route::get('/delete_post/{id}',[AdminController::class, 'delete_post']);
 
+// Edit Post from Admin Table ====>>
+Route::get('/edit_page/{id}',[AdminController::class, 'edit_page']);
+Route::post('/update_post/{id}',[AdminController::class, 'update_post']);
+
+//Post details Page
+Route::get('/post_details/{id}',[HomeController::class, 'post_details']);
+
+//user can be post ===>
+Route::get('/create_post',[HomeController::class, 'create_post'])->middleware('auth');
+Route::post('/user_post',[HomeController::class, 'user_post'])->middleware('auth');
+
+//user can see there posts
+Route::get('/my_post',[HomeController::class, 'my_post'])->middleware('auth');
+
+//user can delete there post 
+Route::get('/delete_user_post/{id}',[HomeController::class, 'delete_user_post'])->middleware('auth');
+
+
+
+
 
 
 

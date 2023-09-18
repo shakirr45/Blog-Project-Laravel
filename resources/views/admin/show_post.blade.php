@@ -60,6 +60,8 @@
         <th>UserType</th>
         <th>Image</th>
         <th>Delete</th>
+        <th>Update</th>
+
       </tr>
         @foreach($post as $post)
       <tr>
@@ -78,6 +80,8 @@
 
         <!-- For sweetalert Js delete for yes or no -->
         <td><a class="btn btn-danger" href="{{url('delete_post',$post->id)}}" onclick="confirmation(event)">Delete</a></td>
+
+        <td><a class="btn btn-success" href="{{url('edit_page',$post->id)}}">Edit</a></td>
 
       </tr>
       @endforeach
