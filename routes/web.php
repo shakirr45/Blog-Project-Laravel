@@ -70,7 +70,15 @@ Route::get('/my_post',[HomeController::class, 'my_post'])->middleware('auth');
 //user can delete there post 
 Route::get('/delete_user_post/{id}',[HomeController::class, 'delete_user_post'])->middleware('auth');
 
+//User can edit there post
+Route::get('/edit_user_post/{id}',[HomeController::class, 'edit_user_post'])->middleware('auth');
+Route::post('/main_edit/{id}',[HomeController::class, 'main_edit'])->middleware('auth');
 
+//for accept post===>
+Route::get('/accept_post/{id}',[AdminController::class, 'accept_post']);
+
+//for reject post===>
+Route::get('/reject_post/{id}',[AdminController::class, 'reject_post']);
 
 
 

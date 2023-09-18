@@ -17,7 +17,10 @@ class HomeController extends Controller
     //
     public function index(){
         if(Auth::id()){
-            $post = Post::all();
+            // $post = Post::all();
+            //for getting active post
+            $post = Post::where('post_staus','=','active')->get();
+
             $usertype=Auth()->user()->usertype;
             if($usertype == 'user'){
                 // return view('dashboard');
@@ -39,7 +42,10 @@ class HomeController extends Controller
 
     //===== For Home Page =======>>
     public function homepage(){
-        $post = Post::all();
+        // $post = Post::all();
+        //for active post====>
+        $post = Post::where('post_staus', '=' , 'active')->get();
+
         return view('home.homepage',compact('post'));
     }
 
@@ -108,6 +114,30 @@ class HomeController extends Controller
         $delete = Post::find($id);
         $delete->delete();
         return redirect()->back()->with('message', 'Post Deleted Succesfully');
+    }
+
+    //user can edit there post ===>
+    public function edit_user_post($id){
+        $data = Post::find($id);
+        return view('home.edit_user_post',compact('data'));
+
+    }
+    public function main_edit(Request $request, $id){
+        $data = Post::find($id);
+        $data->title=$request->title;
+        $data->description=$request->description;
+
+        $image = $request->image;
+        if($image){
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('postimage',$imagename);
+            $data->image=$imagename ;
+        }
+
+        $data->save();
+        return redirect()->back()->with('message','Post Updated Successfully');
+
+
     }
 
 }

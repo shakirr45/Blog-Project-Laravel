@@ -61,6 +61,9 @@
         <th>Image</th>
         <th>Delete</th>
         <th>Update</th>
+        <th>Status Accept</th>
+        <th>Status Reject</th>
+
 
       </tr>
         @foreach($post as $post)
@@ -82,6 +85,11 @@
         <td><a class="btn btn-danger" href="{{url('delete_post',$post->id)}}" onclick="confirmation(event)">Delete</a></td>
 
         <td><a class="btn btn-success" href="{{url('edit_page',$post->id)}}">Edit</a></td>
+
+        <td><a onclick="return confirm('are you sure to accept the post..??')" class="btn btn-outline-secondary" href="{{url('accept_post',$post->id)}}">Accept</a></td>
+
+        <td><a onclick="return confirm('are you sure to reject the post..??')" class="btn btn-primary" href="{{url('reject_post',$post->id)}}">Reject</a></td>
+
 
       </tr>
       @endforeach

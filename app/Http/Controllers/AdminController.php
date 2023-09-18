@@ -94,5 +94,20 @@ class AdminController extends Controller
 
     }
 
+    //for accept post===>
+    public function accept_post($id){
+        $data = Post::find($id);
+        $data->post_staus="active";
+        $data->save();
+        return redirect()->back()->with('message','Post Changed to active');
+    }
+
+    public function reject_post($id){
+        $data = Post::find($id);
+        $data->post_staus="rejected";
+        $data->save();
+        return redirect()->back()->with('message','Post Changed to rejected');
+    }
+
     
 }
